@@ -1,7 +1,7 @@
 import { BigDenary, BDNumberInput } from "https://deno.land/x/bigdenary/mod.ts";
 import { Position } from "./enum.ts";
 
-export interface ConstructorOptions {
+interface LiquidationInputs {
   position: Position;
   entry: BDNumberInput; // USD
   quantity: BDNumberInput; // BTC
@@ -16,7 +16,7 @@ export class Liquidation {
   wallet: BigDenary; // USD
   minMaintainMargin: BigDenary; // Minimum maintenance margin percentage, range: 0 - 1
 
-  constructor(options: ConstructorOptions) {
+  constructor(options: LiquidationInputs) {
     this.position = options.position;
     this.entry = new BigDenary(options.entry);
     this.quantity = new BigDenary(options.quantity);

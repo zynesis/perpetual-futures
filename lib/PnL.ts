@@ -1,7 +1,7 @@
 import { BigDenary, BDNumberInput } from "https://deno.land/x/bigdenary/mod.ts";
 import { Position } from "./enum.ts";
 
-export interface ConstructorOptions {
+export interface PnLInputs {
   position: Position;
   leverage: number;
   entry: BDNumberInput;
@@ -22,7 +22,7 @@ export class PnL {
   exit: BigDenary;
   quantity: BigDenary;
 
-  constructor(options: ConstructorOptions) {
+  constructor(options: PnLInputs) {
     this.position = options.position;
     this.leverage = options.leverage;
     this.entry = new BigDenary(options.entry);
