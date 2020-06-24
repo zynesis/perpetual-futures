@@ -1,22 +1,18 @@
 import { BigDenary, BDNumberInput } from "https://deno.land/x/bigdenary/mod.ts";
-
-export enum Position {
-  Long = 1,
-  Short = -1,
-}
+import { Position } from "./enum.ts";
 
 export interface ConstructorOptions {
-  position: Position,
-  leverage: number,
-  entry: BDNumberInput,
-  exit: BDNumberInput,
-  quantity: BDNumberInput,
+  position: Position;
+  leverage: number;
+  entry: BDNumberInput;
+  exit: BDNumberInput;
+  quantity: BDNumberInput;
 }
 
 export interface Result {
-  initialMargin: BigDenary,
-  profit: BigDenary,
-  returnOnEquity: BigDenary,
+  initialMargin: BigDenary;
+  profit: BigDenary;
+  returnOnEquity: BigDenary;
 }
 
 export class PnL {
@@ -36,12 +32,14 @@ export class PnL {
 
   get result(): Result {
     const initialMargin = this.entry.mul(this.quantity).div(this.leverage);
-    const profit = this.exit.sub(this.entry).mul(this.quantity).mul(this.position);
+    const profit = this.exit.sub(this.entry).mul(this.quantity).mul(
+      this.position,
+    );
     const returnOnEquity = profit.div(initialMargin);
     return {
       initialMargin,
       profit,
       returnOnEquity,
-    }
+    };
   }
 }

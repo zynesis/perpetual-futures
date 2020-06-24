@@ -1,8 +1,6 @@
-import {
-  assertEquals,
-  assertThrows,
-} from "https://deno.land/std/testing/asserts.ts";
-import { PnL, Position } from "./PnL.ts";
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { PnL } from "./PnL.ts";
+import { Position } from "./enum.ts";
 
 Deno.test("PnL (Long)", () => {
   let pnl: PnL;
