@@ -3,7 +3,6 @@ import { Liquidation } from "./Liquidation.ts";
 import { Position } from "./enum.ts";
 
 Deno.test("Liquidation (Long)", () => {
-  let liq: Liquidation;
   assertEquals(
     new Liquidation({
       position: Position.Long,
